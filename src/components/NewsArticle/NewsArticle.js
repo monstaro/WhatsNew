@@ -5,15 +5,17 @@ const NewsArticle = ({info}) => {
   console.log(info)
   let local = info.local
   return (
-    <article className="news-article">
-    
-      {local.map(item => <h2 class="headline">{item.headline}</h2>)}
-
-      {local.map(item => <img class="image" src={item.img} alt="alt"/>)}
-
-      {local.map(item => <h2 class="description">{item.description}</h2>)}
-
-    </article>
+    local.map(item => 
+      <article className="news-article">
+        <h2 class="headline">
+          {item.headline}
+        </h2>
+        <img class="image" src={item.img} alt="alt"/>
+        <p class="description">
+          {item.description}
+        </p>
+      </article>
+   )
   )
 }
 
