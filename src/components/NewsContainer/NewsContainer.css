@@ -1,0 +1,7 @@
+.news-container {
+  background: white;
+  display: flex;
+  margin: auto;
+  padding: 20px;
+  /* padding: 20px; */
+}
