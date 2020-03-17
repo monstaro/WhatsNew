@@ -7,7 +7,7 @@ import technology from '../../data/technology';
 
 
 import NewsContainer from '../NewsContainer/NewsContainer.js';
-
+import Searchbar from '../Searchbar/Searchbar.js'
 import Menu from '../Menu/Menu.js';
 
 import './App.css';
@@ -25,17 +25,21 @@ class App extends Component {
       science: science,
       technology: technology
     }  
-    this.handleClick = this.handleClick.bind(this);
   }
-  handleClick(category) {
-   this.setState( {
-      newsType: this.types[category]
-    })
+  handleChange = (category) => {
+    if (this.types[category]) {
+      this.setState( {
+        newsType: this.types[category]
+      })
+    } else {
+      alert('this aint a valid search term yo')
+    }
   }
   render () {
     return (
       <div className="app">
-        <Menu handleClick={this.handleClick} />
+        <Searchbar handleChange={this.handleChange} />
+        <Menu handleClick={this.handleChange} categories={this.types}/>
         <NewsContainer type={this.state}/>
       </div>
     );
