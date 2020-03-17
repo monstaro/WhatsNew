@@ -9,6 +9,7 @@ import technology from '../../data/technology';
 import NewsContainer from '../NewsContainer/NewsContainer.js';
 import Searchbar from '../Searchbar/Searchbar.js'
 import Menu from '../Menu/Menu.js';
+import Header from '../Header/Header.js'
 
 import './App.css';
 
@@ -38,9 +39,10 @@ class App extends Component {
   render () {
     return (
       <div className="app">
-        <Searchbar handleChange={this.handleChange} />
-        <Menu handleClick={this.handleChange} categories={this.types}/>
-        <NewsContainer type={this.state}/>
+        <Header className="header"/>
+        <Searchbar className="search" handleChange={this.handleChange} />
+        <Menu className="navbar" handleClick={this.handleChange} categories={this.types}/>
+        <NewsContainer className="news" type={this.state}/>
       </div>
     );
   }
