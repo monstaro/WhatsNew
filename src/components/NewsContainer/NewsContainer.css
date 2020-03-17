@@ -1,7 +1,9 @@
 .news-container {
   background: white;
+  border-radius: 20px;
   display: flex;
   margin: auto;
+  overflow: scroll;
   padding: 20px;
-  /* padding: 20px; */
+  width: 80%;
 }
