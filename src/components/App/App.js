@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import local from '../../data/local';
-// import entertainment from '../../data/entertainment';
-// import health from '../../data/health';
-// import science from '../../data/science';
-// import technology from '../../data/technology';
+import entertainment from '../../data/entertainment';
+import health from '../../data/health';
+import science from '../../data/science';
+import technology from '../../data/technology';
 
 
 import NewsContainer from '../NewsContainer/NewsContainer.js';
@@ -18,21 +18,24 @@ class App extends Component {
     this.state = {
       newsType: local
     }
-    // {
-    //   local: local,
-    //   entertainment: entertainment,
-    //   health: health,
-    //   science: science,
-    //   technology: technology
-    // }
+    this.types = {
+      local: local,
+      entertainment: entertainment,
+      health: health,
+      science: science,
+      technology: technology
+    }  
+    this.handleClick = this.handleClick.bind(this);
   }
-  // setState(category) {
-  //   this.setState(return this.category)
-  // }
+  handleClick(category) {
+   this.setState( {
+      newsType: this.types[category]
+    })
+  }
   render () {
     return (
       <div className="app">
-        <Menu />
+        <Menu handleClick={this.handleClick} />
         <NewsContainer type={this.state}/>
       </div>
     );
