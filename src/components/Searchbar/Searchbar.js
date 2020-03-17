@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import './Searchbar.css'
+import '../../images/search.svg'
 
 class Searchbar extends Component {
   constructor() {
@@ -23,7 +24,7 @@ class Searchbar extends Component {
         <input className="search-input" placeholder="search news type">
         </input>
         <button className="search-btn" onClick={this.updateState}>
-          SEARCH!
+
         </button>
       </form>
      

@@ -5,7 +5,12 @@
 }
 
 .app {
-  display: flex;
+  display: grid;
+  /* grid-template-rows: 1fr 4fr;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas:
+   " header search search "
+   " navbar news news "; */
   background: #141527;
   height: 100vh;
   text-align: center;
