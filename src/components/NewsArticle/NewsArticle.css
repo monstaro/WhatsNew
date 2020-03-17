@@ -1,11 +1,29 @@
+
+.news-article {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px;
+}
+
 h2 {
   color: purple;
 }
 
-.news-article {
-  border: 1px solid black
+.headline {
+
+  padding: 5px;
 }
 
-.headline {
-  border: 1px solid red
+.image {
+  height: 200px;
+}
+
+.article-link {
+  background: lightblue;
+  font-size: 20px;
+  height: 35px;
+  width: 100%;
 }
