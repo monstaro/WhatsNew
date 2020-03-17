@@ -1,7 +1,8 @@
 import React from 'react';
 import './Menu.css'
 
-const Menu = () => {
+const Menu = (props) => {
+  console.log(props)
   const subjects = ['local', 'entertainment', 'health', 'science', 'technology']
   return (
     <nav className="nav-bar">
@@ -9,7 +10,7 @@ const Menu = () => {
       subjects.map(subject => {
         return (
           <p className="nav-categories"> 
-          <button className="news-type">{subject}</button>
+          <button onClick={() => props.handleClick(subject)}className="news-type">{subject}</button>
         </p>    
         )
       })
