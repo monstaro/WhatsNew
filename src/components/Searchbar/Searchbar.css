@@ -1,12 +1,8 @@
 
-
-
-
 .search-btn {
   background-color: rgba(221, 255, 0, 1);
   border-radius: 0px 10px 10px 0px;
-  /* height: 0;
-  width: 0; */
+  cursor: pointer;
 }
 .search-icon {
   padding: 5px;
@@ -17,8 +13,8 @@
 
 .search-form {
   display: flex;
-  flex-direction: row;
   margin: auto;
+  width: 40%
 }
 
 .search-input {
