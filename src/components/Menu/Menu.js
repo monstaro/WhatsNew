@@ -24,7 +24,7 @@ class Menu extends Component {
         Object.keys(this.props.categories).map(subject => {
           if (subject !== 'current') {
             return (
-              <p className="nav-categories">
+              <p className={this.state.activeCategory === subject ? 'nav-categories selected-news' : 'nav-categories'}>
                 <button onClick={this.updateState} 
                         value={subject} 
                         className={this.state.activeCategory === subject ? 'news-type selected-news' : 'news-type'}
