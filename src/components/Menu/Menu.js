@@ -22,7 +22,7 @@ class Menu extends Component {
       {
         // eslint-disable-next-line array-callback-return
         Object.keys(this.props.categories).map(subject => {
-          if (subject !== 'current') {
+          if (subject !== 'current' && subject !== 'key') {
             // subject = subject.toUpperCase()
             return (
               <p className={this.state.activeCategory === subject ? 'nav-categories selected-news' : 'nav-categories'}>
