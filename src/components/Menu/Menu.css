@@ -1,20 +1,24 @@
 .nav-bar {
   display: flex;
-  margin: auto;
+  justify-content: center;
+  margin: 5% auto 0 auto;
 }
 
 .nav-categories {
   background: yellow;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 10px 10px 0 0;
+  box-shadow: inset 0px -2px 5px black;
+  margin: 0 10px 0 10px;
 }
 
 .news-type {
   background: yellow;
   border: none;
   cursor: pointer;
+  padding: 3px;
   margin: 10px;
-  font-size: 2em;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 .selected-news {
