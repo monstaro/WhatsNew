@@ -59,9 +59,9 @@ class App extends Component {
     return (
       <div className="app">
         <Header className="header"/>
-        <Searchbar className="search" handleChange={this.handleChange} />
+       
         <Menu className="navbar" handleClick={this.handleChange} categories={this.state}/>
-        <NewsContainer className="news" type={this.state.current} />
+        <NewsContainer className="news" type={this.state.current} handleChange={this.handleChange}/>
       </div>
     );
   }
