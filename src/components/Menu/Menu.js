@@ -22,7 +22,6 @@ class Menu extends Component {
       {
         // eslint-disable-next-line array-callback-return
         Object.keys(this.props.categories).map(subject => {
-          console.log(subject)
           if (subject !== 'current') {
             return (
               <p className="nav-categories">

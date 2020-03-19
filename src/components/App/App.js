@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-// import local from '../../data/local';
-// import entertainment from '../../data/entertainment';
-// import health from '../../data/health';
-// import science from '../../data/science';
-import technology from '../../data/technology';
 
 
 import NewsContainer from '../NewsContainer/NewsContainer.js';
@@ -14,7 +9,6 @@ import Header from '../Header/Header.js'
 import './App.css';
 
 const API = 'https://whats-new-api.herokuapp.com/api/v1/news';
-// const DEFAULT_QUERY = 'redux';
 
 class App extends Component {
   constructor() {
@@ -25,7 +19,7 @@ class App extends Component {
       health: null,
       science: null,
       technology: null,
-      current: technology
+      current: null
     }
   }
   handleChange = (category) => {
@@ -41,7 +35,6 @@ class App extends Component {
     }
   }
   loadFetch = (data) => {
-    console.log(Object.keys(data))
     let dat = Object.keys(data)
     dat.map(cat => {
       return this.setState(
@@ -50,12 +43,16 @@ class App extends Component {
         }
       )
     })
-    
   }
   componentDidMount() {
     fetch(API)
       .then(response => response.json())
-      .then(data => this.loadFetch(data))
+      .then(data => {
+        this.loadFetch(data)
+        this.setState({
+          current: data.local
+        })
+      })
       .catch(error => console.log(error))
   }
   render () {
