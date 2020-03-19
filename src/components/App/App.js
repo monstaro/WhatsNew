@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 
 import NewsContainer from '../NewsContainer/NewsContainer.js';
-import Searchbar from '../Searchbar/Searchbar.js'
 import Menu from '../Menu/Menu.js';
 import Header from '../Header/Header.js'
 
@@ -19,14 +18,15 @@ class App extends Component {
       health: null,
       science: null,
       technology: null,
-      current: null
+      current: null,
+      key: 'local',
     }
   }
   handleChange = (category) => {
-    console.log()
     if(this.state[category]) {
       this.setState({
-        current: this.state[category]
+        current: this.state[category],
+        key: category
       })
     } else {
       alert(
@@ -61,7 +61,7 @@ class App extends Component {
         <Header className="header"/>
        
         <Menu className="navbar" handleClick={this.handleChange} categories={this.state}/>
-        <NewsContainer className="news" type={this.state.current} handleChange={this.handleChange}/>
+        <NewsContainer className="news" type={this.state.current} cat={this.state.key} handleChange={this.handleChange}/>
       </div>
     );
   }

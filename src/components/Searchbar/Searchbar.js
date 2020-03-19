@@ -9,22 +9,23 @@ class Searchbar extends Component {
       searchTerm: ''
     }
   }
-  updateState = (event) => {
+  submitChange = (event) => {
     event.preventDefault()
-    console.log(event.target.parentNode.parentNode.firstChild.value)
+    this.props.handleChange(this.state.searchTerm)
+  }
+  updateState = (e) => {
     this.setState(
       {
-        searchTerm: event.target.parentNode.firstChild.value.toLowerCase()
+        searchTerm: e.target.parentNode.firstChild.value.toLowerCase()
       }
     )
-    this.props.handleChange(event.target.parentNode.firstChild.value.toLowerCase())
   }
   render() {
     return (
       <form className="search-form" >
-        <input className="search-input" placeholder="search news type">
+        <input className="search-input" onChange={this.updateState}placeholder="search news type">
         </input>
-        <button className="search-btn" onClick={this.updateState}>
+        <button className="search-btn" title="search-btn" onClick={this.submitChange}>
           <img src={search} alt="" className="search-icon"/>
         </button>
       </form>

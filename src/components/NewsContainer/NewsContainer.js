@@ -9,6 +9,7 @@ const NewsContainer = (props) => {
     <section className="news-container">
       <section className="search-box">
        <Searchbar className="search" handleChange={props.handleChange} />
+        <h3>{props.cat} news</h3>
        </section>
        <section className="news-section">
       <NewsArticle info={props.type}/>
