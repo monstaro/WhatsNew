@@ -11,6 +11,7 @@ class Searchbar extends Component {
   }
   submitChange = (event) => {
     event.preventDefault()
+    event.target.parentNode.firstChild.value = ''
     this.props.handleChange(this.state.searchTerm)
   }
   updateState = (e) => {
