@@ -16,3 +16,7 @@
   margin: 10px;
   font-size: 2em;
 }
+
+.selected-news {
+  background: white;
+}

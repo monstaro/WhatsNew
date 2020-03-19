@@ -1,35 +1,17 @@
 import React, { Component } from 'react';
 import './Menu.css'
 
-// const Menu = (props) => {
-//   console.log(props)
-//   const subjects = ['local', 'entertainment', 'health', 'science', 'technology']
-//   return (
-//     <nav className="nav-bar">
-//     {
-//       subjects.map(subject => {
-//         return (
-//           <p className="nav-categories"> 
-//           <button onClick={() => props.handleClick(subject)}className="news-type">{subject}</button>
-//         </p>    
-//         )
-//       })
-//     }        
-//     </nav>
-//   )
-// }
-
 class Menu extends Component {
   constructor() {
     super()
     this.state = {
-      subject: ''
+      activeCategory: null
     }
   }
   updateState = (event) => {
     this.setState(
       {
-        subject: event.target.value
+        activeCategory: event.target.value
       }
     )
     this.props.handleClick(event.target.value)
@@ -39,9 +21,13 @@ class Menu extends Component {
     <nav className="nav-bar">
       {
         Object.keys(this.props.categories).map(subject => {
+          console.log(subject)
           return (
             <p className="nav-categories">
-              <button onClick={this.updateState} value={subject}className="news-type">{subject}</button>
+              <button onClick={this.updateState} 
+                      value={subject} 
+                      className={this.state.activeCategory === subject ? 'news-type selected-news' : 'news-type'}
+              >{subject}</button>
             </p>
           )
         })

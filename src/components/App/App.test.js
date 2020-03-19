@@ -1,9 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 import App from './App';
+// import NewsContainer from '../NewsContainer/NewsContainer';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+
+describe('App', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
+  
+  it('has state', () => {
+    expect(App.state)
+  })
+
+  // it('should render a container', () => {
+  //   render(
+  //     <NewsContainer />
+  //   )
+  // })
+})

@@ -4,8 +4,8 @@ import NewsArticle from '../NewsArticle/NewsArticle.js'
 
 
 const NewsContainer = ({type}) => {
-  console.log(type)
-  // console.log(Object.keys(type))
+    // console.log(Object.keys(type))
+   console.log(type)
   return (
     <section className="news-container">
       <h1> news</h1>

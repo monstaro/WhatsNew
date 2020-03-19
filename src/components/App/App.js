@@ -13,36 +13,54 @@ import Header from '../Header/Header.js'
 
 import './App.css';
 
+// const API = 'https://whats-new-api.herokuapp.com/api/v1/news';
+// const DEFAULT_QUERY = 'redux';
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      newsType: local
-    }
-    this.types = {
       local: local,
       entertainment: entertainment,
       health: health,
       science: science,
-      technology: technology
-    }  
-  }
-  handleChange = (category) => {
-    if (this.types[category]) {
-      this.setState( {
-        newsType: this.types[category]
-      })
-    } else {
-      alert('this aint a valid search term yo')
+      technology: technology,
+      current: local
     }
   }
+  handleChange = (category) => {
+    console.log()
+    if(this.state[category]) {
+      this.setState({
+        current: this.state[category]
+      })
+    } else {
+      alert(
+       'this aint a valid search term yo' 
+      )
+    }
+
+  }
+  //   if (this.types[category]) {
+  //     this.setState( {
+  //       newsType: this.types[category]
+  //     })
+  //   } else {
+  //     alert('this aint a valid search term yo')
+  //   }
+  // }
+  // componentDidMount() {
+  //   fetch(API)
+  //     .then(response => response.json())
+  //     .then(data => console.log(data))
+  // }
   render () {
     return (
       <div className="app">
         <Header className="header"/>
         <Searchbar className="search" handleChange={this.handleChange} />
-        <Menu className="navbar" handleClick={this.handleChange} categories={this.types}/>
-        <NewsContainer className="news" type={this.state}/>
+        <Menu className="navbar" handleClick={this.handleChange} categories={this.state}/>
+        <NewsContainer className="news" type={this.state.current} />
       </div>
     );
   }
