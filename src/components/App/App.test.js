@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, getByTitle } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import App from './App';
@@ -13,23 +13,13 @@ describe('App', () => {
     ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
-  it('should display a news type on button press', () => {
-    const { getByPlaceholderText, getByText, getByDisplayValue } = render(
-      <App />
-    )
-    fireEvent.click(getByDisplayValue('entertainment'))
-    expect(getByText('entertainment')).toBeInTheDocument()
-  })
-  it('should display a news type on seawrch', () => {
-    const { getByPlaceholderText, getByText, getByDisplayValue } = render(
+
+  it('should display a news type on search', () => {
+    const { getByPlaceholderText, getByText, getByTitle } = render(
       <App />
     )
     fireEvent.change(getByPlaceholderText('search news type'), {target: {value: 'entertainment'}})
+    fireEvent.click(getByTitle('search-btn'))
     expect(getByText('entertainment')).toBeInTheDocument()
   })
-  // it('should render a container', () => {
-  //   render(
-  //     <NewsContainer />
-  //   )
-  // })
 })
