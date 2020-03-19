@@ -14,10 +14,10 @@ class Searchbar extends Component {
     console.log(event.target.parentNode.parentNode.firstChild.value)
     this.setState(
       {
-        searchTerm: event.target.parentNode.parentNode.firstChild.value.toLowerCase()
+        searchTerm: event.target.parentNode.firstChild.value.toLowerCase()
       }
     )
-    this.props.handleChange(event.target.parentNode.parentNode.firstChild.value.toLowerCase())
+    this.props.handleChange(event.target.parentNode.firstChild.value.toLowerCase())
   }
   render() {
     return (
