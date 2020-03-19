@@ -35,7 +35,6 @@ class App extends Component {
     }
   }
   loadFetch = (data) => {
-    console.log(Object.keys(data))
     let dat = Object.keys(data)
     dat.map(cat => {
       return this.setState(
@@ -57,7 +56,6 @@ class App extends Component {
       .catch(error => console.log(error))
   }
   render () {
-    console.log(this.state)
     return (
       <div className="app">
         <Header className="header"/>
