@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Searchbar.css'
-// import img from '../../images/search.svg'
+import search from '../../images/search.svg'
 
 class Searchbar extends Component {
   constructor() {
@@ -11,12 +11,13 @@ class Searchbar extends Component {
   }
   updateState = (event) => {
     event.preventDefault()
+    console.log(event.target.parentNode.parentNode.firstChild.value)
     this.setState(
       {
-        searchTerm: event.target.parentNode.firstChild.value.toLowerCase()
+        searchTerm: event.target.parentNode.parentNode.firstChild.value.toLowerCase()
       }
     )
-    this.props.handleChange(event.target.parentNode.firstChild.value.toLowerCase())
+    this.props.handleChange(event.target.parentNode.parentNode.firstChild.value.toLowerCase())
   }
   render() {
     return (
@@ -24,6 +25,7 @@ class Searchbar extends Component {
         <input className="search-input" placeholder="search news type">
         </input>
         <button className="search-btn" onClick={this.updateState}>
+          <img src={search} alt="" className="search-icon"/>
         </button>
       </form>
      

@@ -20,16 +20,19 @@ class Menu extends Component {
     return (
     <nav className="nav-bar">
       {
+        // eslint-disable-next-line array-callback-return
         Object.keys(this.props.categories).map(subject => {
           console.log(subject)
-          return (
-            <p className="nav-categories">
-              <button onClick={this.updateState} 
-                      value={subject} 
-                      className={this.state.activeCategory === subject ? 'news-type selected-news' : 'news-type'}
-              >{subject}</button>
-            </p>
-          )
+          if (subject !== 'current') {
+            return (
+              <p className="nav-categories">
+                <button onClick={this.updateState} 
+                        value={subject} 
+                        className={this.state.activeCategory === subject ? 'news-type selected-news' : 'news-type'}
+                >{subject}</button>
+              </p>
+            )
+          }
         })
       }
     </nav>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import local from '../../data/local';
-import entertainment from '../../data/entertainment';
-import health from '../../data/health';
-import science from '../../data/science';
+// import local from '../../data/local';
+// import entertainment from '../../data/entertainment';
+// import health from '../../data/health';
+// import science from '../../data/science';
 import technology from '../../data/technology';
 
 
@@ -13,19 +13,19 @@ import Header from '../Header/Header.js'
 
 import './App.css';
 
-// const API = 'https://whats-new-api.herokuapp.com/api/v1/news';
+const API = 'https://whats-new-api.herokuapp.com/api/v1/news';
 // const DEFAULT_QUERY = 'redux';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      local: local,
-      entertainment: entertainment,
-      health: health,
-      science: science,
-      technology: technology,
-      current: local
+      local: null,
+      entertainment: null,
+      health: null,
+      science: null,
+      technology: null,
+      current: technology
     }
   }
   handleChange = (category) => {
@@ -39,21 +39,25 @@ class App extends Component {
        'this aint a valid search term yo' 
       )
     }
-
   }
-  //   if (this.types[category]) {
-  //     this.setState( {
-  //       newsType: this.types[category]
-  //     })
-  //   } else {
-  //     alert('this aint a valid search term yo')
-  //   }
-  // }
-  // componentDidMount() {
-  //   fetch(API)
-  //     .then(response => response.json())
-  //     .then(data => console.log(data))
-  // }
+  loadFetch = (data) => {
+    console.log(Object.keys(data))
+    let dat = Object.keys(data)
+    dat.map(cat => {
+      return this.setState(
+        {
+          [cat]: data[cat]
+        }
+      )
+    })
+    
+  }
+  componentDidMount() {
+    fetch(API)
+      .then(response => response.json())
+      .then(data => this.loadFetch(data))
+      .catch(error => console.log(error))
+  }
   render () {
     return (
       <div className="app">
