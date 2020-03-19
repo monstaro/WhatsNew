@@ -12,7 +12,7 @@ const NewsArticle = ({info}) => {
           </h3>
           <img className="image" src={item.img} alt="alt"/>
           <p className="description">
-            {item.description}
+            {item.description.length > 12 ? item.description : item.description.substring(0, 12)}
           </p>
           <button className="article-link">
             <a href={item.url}><span className="link-to-article">Link To Article</span> <img className="link-arrow" src={next} alt=""/></a>
